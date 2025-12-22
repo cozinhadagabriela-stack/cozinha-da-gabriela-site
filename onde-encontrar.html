@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Onde encontrar – Cozinha da Gabriela</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* mesmo estilo base da home/contato */
+    :root {
+      --bg: #fff7ee;
+      --bg-alt: #ffffff;
+      --accent: #e97a2a;
+      --accent-soft: #f6a96c;
+      --text: #3a2922;
+      --text-light: #6f5a50;
+      --border-soft: #f0dfcf;
+      --radius: 16px;
+      --radius-pill: 999px;
+      --shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+
+    body{
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:radial-gradient(circle at top left,#ffe0bf,#fff3e7 45%,#fffdf9 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    img{max-width:100%;display:block;}
+    a{color:inherit;text-decoration:none;}
+    .container{max-width:1100px;margin:0 auto;padding:0 1.5rem;}
+
+    /* ============ HEADER IGUAL AO INDEX ============ */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: transparent;
+      backdrop-filter: none;
+      border-bottom: none;
+    }
+
+    .header-shell {
+      width: 100%;
+      padding: 0.45rem 3rem 0.75rem;
+      background: linear-gradient(180deg, #ffe0bf, #ffd3a6);
+      border-radius: 0 0 22px 22px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+      border-bottom: 1px solid rgba(214,140,74,0.55);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-left,
+    .nav-right {
+      flex: 1 1 0;
+    }
+
+    .nav {
+      display: flex;
+      gap: 1.8rem;
+      font-size: 1.05rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-left {
+      justify-content: flex-end;
+    }
+
+    .nav-right {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0;
+    }
+
+    .nav-right-links {
+      display: flex;
+      gap: 1.8rem;
+      margin-right: auto;  /* empurra o botão para o canto direito */
+    }
+
+    .nav a {
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-pill);
+      color: var(--text-light);
+      transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease;
+    }
+
+    .nav a:hover {
+      background: rgba(233,122,42,0.11);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    /* LOGO CLICÁVEL */
+    .logo-link {
+      flex: 0 0 auto;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      margin: 0 3rem;
+    }
+
+    .logo-img {
+      width: 205px;
+      height: auto;
+    }
+
+    .logo-text-main {
+      font-family:"Comic Sans MS","Comic Neue",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      font-weight:600;
+      font-size:0.88rem;
+      text-align:center;
+      line-height:1.1;
+      letter-spacing:0.02em;
+      color:#a4531a;
+    }
+
+    .nav-cta{
+      padding:0.7rem 1.9rem;
+      border-radius:999px;
+      border:none;
+      background:linear-gradient(135deg,#e97a2a,#f6a96c);
+      color:#fff;
+      font-size:1rem;
+      font-weight:700;
+      cursor:pointer;
+      box-shadow:0 10px 22px rgba(214,120,58,0.45);
+      transition:transform 0.1s ease,box-shadow 0.1s ease,filter 0.1s ease;
+      white-space:nowrap;
+    }
+    .nav-cta:hover{
+      transform:translateY(-1px);
+      box-shadow:0 14px 30px rgba(214,120,58,0.55);
+      filter:brightness(1.05);
+    }
+
+    @media (max-width:720px){
+      .header-shell {
+        flex-direction: column;
+        row-gap: 0.6rem;
+        border-radius: 0 0 18px 18px;
+        padding: 0.5rem 1rem 0.8rem;
+      }
+
+      .nav-left,
+      .nav-right-links {
+        display: none;
+      }
+
+      .logo-link {
+        margin: 0;
+      }
+
+      .logo-img {
+        width: 190px;
+      }
+    }
+
+    /* ============ CONTEÚDO ============ */
+    main{
+      background:#fffdf9;
+    }
+
+    section{padding:3rem 0;}
+    .section-header{text-align:center;margin-bottom:2.1rem;}
+    .section-label{
+      font-size:0.9rem;
+      text-transform:uppercase;
+      letter-spacing:0.12em;
+      color:var(--accent);
+      font-weight:600;
+      margin-bottom:0.3rem;
+    }
+    .section-title{font-size:1.7rem;color:var(--text);margin-bottom:0.3rem;}
+    .section-subtitle{
+      font-size:0.95rem;
+      color:var(--text-light);
+      max-width:32rem;
+      margin:0 auto;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:minmax(0,1.1fr) minmax(0,1.4fr);
+      gap:2rem;
+      align-items:flex-start;
+    }
+
+    /* MOBILE: mapa em cima, lista embaixo */
+    @media (max-width:880px){
+      .two-col{
+        display:flex;
+        flex-direction:column-reverse; /* mapa fica em cima no celular */
+        gap:1.6rem;
+      }
+    }
+
+    .info-card{
+      background:rgba(255,255,255,0.96);
+      border-radius:var(--radius);
+      padding:1.2rem 1.1rem;
+      border:1px solid var(--border-soft);
+      box-shadow:var(--shadow);
+      font-size:0.88rem;
+      color:var(--text-light);
+    }
+    .info-card h3{
+      font-size:1rem;
+      margin-bottom:0.6rem;
+      color:var(--text);
+    }
+
+    .store-list{
+      list-style:none;
+      margin-top:0.6rem;
+      display:flex;
+      flex-direction:column;
+      gap:0.5rem;
+    }
+    .store-item{
+      border-radius:12px;
+      border:1px solid var(--border-soft);
+      background:rgba(255,255,255,0.98);
+      padding:0.65rem 0.75rem;
+      cursor:pointer;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      transition:background 0.15s ease,box-shadow 0.15s ease,transform 0.1s ease,border-color 0.15s ease;
+    }
+    .store-item strong{color:var(--text);}
+    .store-item small{
+      font-size:0.78rem;
+      color:var(--text-light);
+      margin-top:0.15rem;
+      line-height:1.35; /* melhor para 2 linhas: cidade + endereço */
+    }
+    .store-item span.tag{
+      margin-top:0.25rem;
+      font-size:0.75rem;
+      padding:0.15rem 0.45rem;
+      border-radius:999px;
+      background:rgba(214,120,58,0.08);
+      color:var(--accent);
+      font-weight:600;
+    }
+    .store-item:hover{
+      background:#fff7ec;
+      box-shadow:0 8px 18px rgba(0,0,0,0.06);
+      transform:translateY(-1px);
+      border-color:rgba(214,120,58,0.5);
+    }
+    .store-item.active{
+      background:#fff1de;
+      border-color:var(--accent);
+      box-shadow:0 10px 22px rgba(214,120,58,0.35);
+    }
+
+    .map-card{
+      background:rgba(255,255,255,0.96);
+      border-radius:var(--radius);
+      padding:1.2rem 1.1rem;
+      border:1px solid var(--border-soft);
+      box-shadow:var(--shadow);
+    }
+    .map-card h3{
+      font-size:1rem;
+      margin-bottom:0.6rem;
+      color:var(--text);
+    }
+    .map-frame{
+      width:100%;
+      border:0;
+      border-radius:14px;
+      height:340px;
+    }
+    @media (max-width:600px){
+      .map-frame{height:280px;}
+    }
+    .map-hint{
+      margin-top:0.4rem;
+      font-size:0.8rem;
+      color:var(--text-light);
+    }
+
+    /* ============ FOOTER ============ */
+    footer{
+      border-top:1px solid var(--border-soft);
+      background:rgba(255,247,238,0.96);
+      padding:1.5rem 0 2rem;
+      font-size:0.8rem;
+      color:var(--text-light);
+    }
+    .footer-row{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:space-between;
+      gap:0.6rem;
+      align-items:center;
+    }
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:0.8rem;
+    }
+    .footer-links a{
+      text-decoration:underline;
+      text-underline-offset:2px;
+      text-decoration-thickness:1px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-shell">
+      <nav class="nav nav-left">
+        <a href="sobre.html">Quem somos</a>
+        <a href="produtos.html">Produtos</a>
+      </nav>
+
+      <!-- LOGO CLICÁVEL -->
+      <a href="index.html" class="logo-link" aria-label="Voltar para a página inicial">
+        <img src="img/logo.png" alt="Cozinha da Gabriela" class="logo-img">
+        <div class="logo-text-main">O sabor caseiro que atravessa gerações</div>
+      </a>
+
+      <div class="nav-right">
+        <nav class="nav nav-right-links">
+          <a href="onde-encontrar.html">Onde encontrar</a>
+          <a href="contato.html">Contato</a>
+        </nav>
+        <button class="nav-cta" onclick="window.location.href='contato.html'">
+          Quero revender
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Pontos de venda</div>
+          <h2 class="section-title">Onde encontrar nossos biscoitos</h2>
+          <p class="section-subtitle">
+            Veja no mapa os mercados e padarias onde a Cozinha da Gabriela já está presente
+            e encontre o ponto de venda mais perto de você.
+          </p>
+        </div>
+
+        <div class="two-col">
+          <!-- LISTA DE LOJAS -->
+          <div class="info-card">
+            <h3>Pontos de venda cadastrados</h3>
+            <ul class="store-list">
+              <li class="store-item active"
+                  data-lat="-15.06876962198441"
+                  data-lng="-57.19567116835104">
+                <strong>Supermercado Regional</strong>
+                <small>Brasil</small>
+                <span class="tag">Supermercado</span>
+              </li>
+
+              <li class="store-item"
+                  data-lat="-15.07306214987313"
+                  data-lng="-57.180139048464355">
+                <strong>Supermercado Regional (Centro)</strong>
+                <small>Brasil</small>
+                <span class="tag">Supermercado</span>
+              </li>
+
+              <li class="store-item"
+                  data-lat="-14.726228625251107"
+                  data-lng="-57.046784162568954">
+                <strong>Supermercado Bom Preço</strong>
+                <small>Brasil</small>
+                <span class="tag">Supermercado</span>
+              </li>
+
+              <li class="store-item"
+                  data-lat="-14.407152265994691"
+                  data-lng="-56.444293233363624">
+                <strong>Supermercado Polo Centro</strong>
+                <small>Brasil</small>
+                <span class="tag">Supermercado</span>
+              </li>
+
+              <li class="store-item"
+                  data-lat="-14.408274206465098"
+                  data-lng="-56.447061844137544">
+                <strong>Supermercado Zeca</strong>
+                <small>Brasil</small>
+                <span class="tag">Supermercado</span>
+              </li>
+
+              <li class="store-item"
+                  data-lat="-14.454062519574673"
+                  data-lng="-56.798492650557066">
+                <strong>Mercado Freitas</strong>
+                <small>Brasil</small>
+                <span class="tag">Mercado parceiro</span>
+              </li>
+
+              <li class="store-item"
+                  data-lat="-14.46561533456053"
+                  data-lng="-56.8458108775417">
+                <strong>Supermercado Sertões</strong>
+                <small>Brasil</small>
+                <span class="tag">Supermercado</span>
+              </li>
+
+              <li class="store-item"
+                  data-lat="-14.45732299329238"
+                  data-lng="-56.84813257383995">
+                <strong>Mercado Boa Sorte</strong>
+                <small>Brasil</small>
+                <span class="tag">Mercado parceiro</span>
+              </li>
+
+              <li class="store-item"
+                  data-lat="-14.453005021269618"
+                  data-lng="-56.84495355923092">
+                <strong>Supermercado Aurora</strong>
+                <small>Brasil</small>
+                <span class="tag">Supermercado</span>
+              </li>
+
+              <li class="store-item"
+                  data-lat="-14.462521175816137"
+                  data-lng="-56.836896271005884">
+                <strong>Mercaria Carvalho</strong>
+                <small>Brasil</small>
+                <span class="tag">Mercado parceiro</span>
+              </li>
+
+              <li class="store-item"
+                  data-lat="-14.466858913117221"
+                  data-lng="-56.83850747569077">
+                <strong>Mercado do Neguinho</strong>
+                <small>Brasil</small>
+                <span class="tag">Mercado parceiro</span>
+              </li>
+
+              <li class="store-item"
+                  data-lat="-14.46174075213789"
+                  data-lng="-56.83849726944741">
+                <strong>Supermercado JL Aminadab</strong>
+                <small>Brasil</small>
+                <span class="tag">Supermercado</span>
+              </li>
+
+              <li class="store-item"
+                  data-lat="-11.967304462367698"
+                  data-lng="-60.95666378837716">
+                <strong>Auto Posto São Roque</strong>
+                <small>Brasil</small>
+                <span class="tag">Posto e conveniência</span>
+              </li>
+
+              <li class="store-item"
+                  data-lat="-15.630395643471113"
+                  data-lng="-56.070093819845354">
+                <strong>Pão da Hora Mix</strong>
+                <small>Brasil</small>
+                <span class="tag">Mercado parceiro</span>
+              </li>
+
+              <li class="store-item"
+                  data-lat="-15.641754183072889"
+                  data-lng="-56.08444847349083">
+                <strong>Pão da Hora</strong>
+                <small>Brasil</small>
+                <span class="tag">Padaria e mercado</span>
+              </li>
+
+              <li class="store-item"
+                  data-lat="-15.60961655720251"
+                  data-lng="-56.05587174567192">
+                <strong>Supermercado Conquista</strong>
+                <small>Brasil</small>
+                <span class="tag">Supermercado</span>
+              </li>
+
+              <li class="store-item"
+                  data-lat="-15.613433318548742"
+                  data-lng="-55.997870662439226">
+                <strong>Supermercado Bom Preço</strong>
+                <small>Brasil</small>
+                <span class="tag">Supermercado</span>
+              </li>
+
+              <!-- NOVO PONTO: Supermercado Verdurão Tangara -->
+              <li class="store-item"
+                  data-lat="-14.512163061527199"
+                  data-lng="-56.491186968863765">
+                <strong>Supermercado Verdurão Tangara</strong>
+                <small>Brasil</small>
+                <span class="tag">Supermercado</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- MAPA -->
+          <div class="map-card">
+            <h3>Mapa dos pontos de venda</h3>
+            <iframe
+              id="storeMap"
+              class="map-frame"
+              src="https://www.google.com/maps?q=-15.06876962198441,-57.19567116835104&z=15&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <p class="map-hint">
+              Clique em um ponto de venda na lista ao lado para atualizar o mapa.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div>
+        &copy; <span id="year"></span> Cozinha da Gabriela. Todos os direitos reservados.
+      </div>
+      <div class="footer-links">
+        <a href="sobre.html">Quem somos</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="onde-encontrar.html">Onde encontrar</a>
+        <a href="contato.html">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ano do rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const storeItems = document.querySelectorAll('.store-item');
+    const mapFrame = document.getElementById('storeMap');
+
+    // Atualiza mapa ao clicar em um ponto de venda
+    storeItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const lat = item.dataset.lat;
+        const lng = item.dataset.lng;
+
+        mapFrame.src = `https://www.google.com/maps?q=${lat},${lng}&z=15&output=embed`;
+
+        storeItems.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+
+        // NO CELULAR: rola suavemente até o mapa
+        if (window.innerWidth <= 880) {
+          mapFrame.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // --- Descobrir cidade/UF + endereço automaticamente pelas coordenadas ---
+    async function preencherCidades() {
+      for (const item of storeItems) {
+        const lat = item.dataset.lat;
+        const lng = item.dataset.lng;
+        const labelEl = item.querySelector('small');
+        if (!lat || !lng || !labelEl) continue;
+
+        try {
+          const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}&accept-language=pt-BR`;
+          const resp = await fetch(url, {
+            headers: {
+              'Accept-Language': 'pt-BR'
+            }
+          });
+
+          if (!resp.ok) continue;
+          const data = await resp.json();
+
+          const addr = data.address || {};
+          const city =
+            addr.city ||
+            addr.town ||
+            addr.village ||
+            addr.municipality ||
+            addr.county;
+
+          const stateCode = addr.state_code;
+          const state = addr.state;
+
+          let uf = stateCode || '';
+          if (!uf && state) {
+            if (state.includes('Mato Grosso')) uf = 'MT';
+            if (state.includes('Rondônia')) uf = 'RO';
+          }
+
+          // Linha 1: Cidade / UF
+          let linha1 = '';
+          if (city && uf) linha1 = `${city} / ${uf}`;
+          else if (city) linha1 = city;
+          else if (state) linha1 = state;
+
+          // Linha 2: endereço (rua, número, bairro)
+          const road = addr.road || addr.residential || addr.pedestrian || addr.footway;
+          const houseNumber = addr.house_number;
+          const neighbourhood = addr.neighbourhood || addr.suburb || addr.hamlet || addr.quarter;
+
+          let enderecoPartes = [];
+          if (road) enderecoPartes.push(road);
+          if (houseNumber) enderecoPartes.push(houseNumber);
+          let linha2 = enderecoPartes.join(', ');
+          if (neighbourhood) {
+            linha2 = linha2 ? `${linha2} - ${neighbourhood}` : neighbourhood;
+          }
+
+          if (linha1 && linha2) {
+            labelEl.innerHTML = `${linha1}<br>${linha2}`;
+          } else if (linha1) {
+            labelEl.textContent = linha1;
+          } else if (linha2) {
+            labelEl.textContent = linha2;
+          }
+        } catch (err) {
+          console.error('Erro ao buscar cidade/endereço para o ponto de venda:', err);
+          // em caso de erro, deixa o texto original ("Brasil")
+        }
+      }
+    }
+
+    preencherCidades();
+  </script>
+</body>
+</html>
