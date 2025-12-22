@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Verificação Google Search Console -->
+  <meta name="google-site-verification" content="Dj8moEvcJZNumr_OEyyhQhxhSA22J9zezwd_Ah-SrfY" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6MHDSDH7YK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-6MHDSDH7YK');
+  </script>
+
+  <title>Cozinha da Gabriela – O sabor caseiro que atravessa gerações</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Cozinha da Gabriela: biscoitos caseiros artesanais em Arenápolis/MT. Biscoito de coco, goiabada, sequilho de limão e leite condensado com validade de 90 dias para mercados e padarias." />
+  <style>
+    :root {
+      --bg: #fff7ee;
+      --bg-alt: #ffffff;
+      --accent: #e97a2a;
+      --accent-soft: #f6a96c;
+      --text: #3f2c22;
+      --text-light: #7b6557;
+      --border-soft: #f0dfcf;
+      --radius: 16px;
+      --radius-pill: 999px;
+      --shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #ffe0bf, #fff3e7 45%, #fffdf9 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ============ HEADER ============ */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: transparent;
+      backdrop-filter: none;
+      border-bottom: none;
+    }
+
+    .header-shell {
+      width: 100%;
+      padding: 0.45rem 3rem 0.75rem;
+      background: linear-gradient(180deg, #ffe0bf, #ffd3a6);
+      border-radius: 0 0 22px 22px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+      border-bottom: 1px solid rgba(214,140,74,0.55);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-left,
+    .nav-right {
+      flex: 1 1 0;
+    }
+
+    .nav {
+      display: flex;
+      gap: 1.8rem;
+      font-size: 1.05rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-left {
+      justify-content: flex-end;
+    }
+
+    .nav-right {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0;
+    }
+
+    .nav-right-links {
+      display: flex;
+      gap: 1.8rem;
+      margin-right: auto;
+    }
+
+    .nav a {
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-pill);
+      color: var(--text-light);
+      transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease;
+    }
+
+    .nav a:hover {
+      background: rgba(233,122,42,0.11);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .logo-link {
+      flex: 0 0 auto;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      margin: 0 3rem;
+    }
+
+    .logo-img {
+      width: 205px;
+      height: auto;
+    }
+
+    .logo-text-main {
+      font-family: "Comic Sans MS", "Comic Neue", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-weight: 600;
+      font-size: 0.88rem;
+      text-align: center;
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      color: #a4531a;
+    }
+
+    .nav-cta {
+      padding: 0.7rem 1.9rem;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg,#e97a2a,#f6a96c);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 9px 20px rgba(214,120,58,0.45);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 13px 28px rgba(214,120,58,0.55);
+      filter: brightness(1.05);
+    }
+
+    /* ====== MOBILE HEADER ====== */
+    @media (max-width: 720px) {
+      .header-shell {
+        flex-direction: column;
+        row-gap: 0.35rem;
+        border-radius: 0 0 18px 18px;
+        padding: 0.6rem 1rem 0.9rem;
+        align-items: center;
+      }
+
+      .logo-link {
+        order: 1;
+        margin: 0;
+      }
+
+      .logo-img {
+        width: 170px;
+      }
+
+      .nav-left {
+        order: 2;
+        display: flex;
+        justify-content: center;
+      }
+
+      .nav-right {
+        order: 3;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+      }
+
+      .nav-right-links {
+        display: flex;
+        justify-content: center;
+        margin-right: 0;
+      }
+
+      .nav {
+        font-size: 0.9rem;
+        gap: 1.1rem;
+      }
+
+      .nav-cta {
+        padding: 0.55rem 1.7rem;
+        font-size: 0.95rem;
+      }
+    }
+
+    /* ============ CONTEÚDO PRINCIPAL ============ */
+    main {
+      background: #fffdf9;
+    }
+
+    .hero-info {
+      padding: 1.2rem 0 4rem; /* sobe o texto logo após o header */
+    }
+
+    .hero-lead {
+      font-size: 0.98rem;
+      color: var(--text-light);
+      max-width: 34rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .btn-primary {
+      padding: 0.8rem 1.4rem;
+      border-radius: var(--radius-pill);
+      border: none;
+      background: linear-gradient(135deg,#e97a2a,#f6a96c);
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      box-shadow: 0 10px 22px rgba(214,120,58,0.45);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-outline {
+      padding: 0.78rem 1.2rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(233,122,42,0.5);
+      background: rgba(255,255,255,0.92);
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--accent);
+      cursor: pointer;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.96);
+      border-radius: 24px;
+      padding: 1.6rem 1.6rem;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow);
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin: 2.0rem auto 0;
+      max-width: 880px;
+    }
+
+    .hero-card h2 {
+      font-size: 1rem;
+      margin-bottom: 0.6rem;
+      color: var(--text);
+    }
+
+    .hero-card ul {
+      list-style: none;
+      margin-top: 0.7rem;
+    }
+
+    .hero-card li {
+      display: flex;
+      gap: 0.4rem;
+      margin-bottom: 0.25rem;
+      font-size: 0.88rem;
+    }
+
+    .hero-card li span {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* BLOCO LINHA DE PRODUTOS */
+    .home-products {
+      padding: 0 0 3.5rem;
+    }
+
+    .home-products-inner {
+      display: grid;
+      grid-template-columns: minmax(0,1.1fr) minmax(0,1.2fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .home-products-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .home-products-title {
+      font-size: 1.6rem;
+      margin-bottom: 0.6rem;
+      color: var(--text);
+    }
+
+    .home-products-text {
+      font-size: 0.98rem;
+      color: var(--text-light);
+      margin-bottom: 1.2rem;
+      max-width: 26rem;
+    }
+
+    .home-products-image {
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.09);
+      background: #fff;
+    }
+
+    .home-products-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @media (max-width: 880px) {
+      .home-products-inner {
+        grid-template-columns: minmax(0,1fr);
+      }
+    }
+
+    footer {
+      border-top: 1px solid var(--border-soft);
+      background: rgba(255,247,238,0.96);
+      padding: 1.5rem 0 2rem;
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    .footer-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .footer-links a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 1px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-shell">
+      <nav class="nav nav-left">
+        <a href="sobre.html">Quem somos</a>
+        <a href="produtos.html">Produtos</a>
+      </nav>
+
+      <a href="index.html" class="logo-link" aria-label="Voltar para a página inicial">
+        <img src="img/logo.png" alt="Cozinha da Gabriela" class="logo-img">
+        <div class="logo-text-main">O sabor caseiro que atravessa gerações</div>
+      </a>
+
+      <div class="nav-right">
+        <nav class="nav nav-right-links">
+          <a href="onde-encontrar.html">Onde encontrar</a>
+          <a href="contato.html">Contato</a>
+        </nav>
+        <button class="nav-cta" onclick="window.location.href='contato.html'">
+          Quero revender
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- agora começa direto no texto, sem hero-splash -->
+    <section class="hero-info">
+      <div class="container">
+        <div>
+          <p class="hero-lead">
+            Biscoitos caseiros artesanais, preparados com tradição familiar e embalados
+            com profissionalismo para atender o varejo com qualidade, segurança e alta aceitação.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn-primary" onclick="window.location.href='produtos.html'">
+              Ver linha de produtos
+            </button>
+            <button class="btn-outline" onclick="window.location.href='contato.html'">
+              Falar com o comercial
+            </button>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h2>Seu fornecedor de biscoitos caseiros no varejo</h2>
+          <p>
+            A Cozinha da Gabriela é uma fábrica familiar em Arenápolis/MT, especializada em biscoitos
+            caseiros artesanais para mercados, padarias e empórios. Produzimos em escala, mas mantemos o
+            sabor de receita de família em cada fornada.
+          </p>
+          <ul>
+            <li><span>•</span> Mix enxuto com 4 sabores principais, fáceis de expor e de vender.</li>
+            <li><span>•</span> Embalagens de 150 g e 200 g, com design próprio e tabela nutricional.</li>
+            <li><span>•</span> Validade de 90 dias, ideal para logística e giro em gôndola.</li>
+            <li><span>•</span> Produção contínua e entregas combinadas por rota, evitando ruptura.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="home-products">
+      <div class="container">
+        <div class="home-products-inner">
+          <div>
+            <div class="home-products-label">Linha de produtos</div>
+            <h2 class="home-products-title">Quatro sabores pensados para o varejo</h2>
+            <p class="home-products-text">
+              Coco, goiabada, sequilho de limão e sequilho de leite condensado: um mix enxuto,
+              fácil de expor e com excelente aceitação em mercados, padarias e empórios.
+            </p>
+            <button class="btn-primary" onclick="window.location.href='produtos.html'">
+              Conhecer todos os produtos
+            </button>
+          </div>
+          <div class="home-products-image">
+            <img src="img/produtos/diversas/produtos-mesa-03.jpeg"
+                 alt="Bandejas de biscoitos Cozinha da Gabriela alinhadas com fundo neutro">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div>
+        &copy; <span id="year"></span> Cozinha da Gabriela. Todos os direitos reservados.
+      </div>
+      <div class="footer-links">
+        <a href="sobre.html">Quem somos</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="onde-encontrar.html">Onde encontrar</a>
+        <a href="contato.html">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

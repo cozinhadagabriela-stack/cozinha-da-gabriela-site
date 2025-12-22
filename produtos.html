@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Produtos – Cozinha da Gabriela</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* mesmo CSS base das outras páginas */
+    :root {
+      --bg: #fff7ee;
+      --bg-alt: #ffffff;
+      --accent: #e97a2a;
+      --accent-soft: #f6a96c;
+      --text: #3f2c22;
+      --text-light: #7b6557;
+      --border-soft: #f0dfcf;
+      --radius: 16px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 10px 25px rgba(0,0,0,0.05);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #ffe0bf, #fff3e7 45%, #fffdf9 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ============ HEADER IGUAL AO INDEX ============ */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: transparent;
+      backdrop-filter: none;
+      border-bottom: none;
+    }
+
+    .header-shell {
+      width: 100%;
+      padding: 0.45rem 3rem 0.75rem;
+      background: linear-gradient(180deg, #ffe0bf, #ffd3a6);
+      border-radius: 0 0 22px 22px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+      border-bottom: 1px solid rgba(214,140,74,0.55);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-left,
+    .nav-right {
+      flex: 1 1 0;
+    }
+
+    .nav {
+      display: flex;
+      gap: 1.8rem;
+      font-size: 1.05rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-left {
+      justify-content: flex-end;
+    }
+
+    .nav-right {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 0;
+    }
+
+    .nav-right-links {
+      display: flex;
+      gap: 1.8rem;
+      margin-right: auto; /* empurra o botão para o canto direito */
+    }
+
+    .nav a {
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-pill);
+      color: var(--text-light);
+      transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease;
+    }
+
+    .nav a:hover {
+      background: rgba(233,122,42,0.11);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    /* LOGO CLICÁVEL */
+    .logo-link {
+      flex: 0 0 auto;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      margin: 0 3rem;
+    }
+
+    .logo-img {
+      width: 205px;
+      height: auto;
+    }
+
+    .logo-text-main {
+      font-family: "Comic Sans MS", "Comic Neue", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-weight: 600;
+      font-size: 0.88rem;
+      text-align: center;
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+      color: #a4531a;
+    }
+
+    .nav-cta {
+      padding: 0.7rem 1.9rem;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #e97a2a, #f6a96c);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 22px rgba(214,120,58,0.45);
+      transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(214,120,58,0.55);
+      filter: brightness(1.05);
+    }
+
+    @media (max-width: 720px) {
+      .header-shell {
+        flex-direction: column;
+        row-gap: 0.6rem;
+        border-radius: 0 0 18px 18px;
+        padding: 0.5rem 1rem 0.8rem;
+      }
+
+      .nav-left,
+      .nav-right-links {
+        display: none;
+      }
+
+      .logo-link {
+        margin: 0;
+      }
+
+      .logo-img {
+        width: 190px;
+      }
+    }
+
+    /* ============ CONTEÚDO ============ */
+    main {
+      background: #fffdf9;
+      padding: 2.5rem 0 3rem;
+    }
+
+    .hero {
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    @media (max-width: 880px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(233,122,42,0.08);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+      line-height: 1.1;
+      margin-bottom: 0.6rem;
+      color: var(--text);
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      max-width: 30rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-highlights {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(0, 210px));
+      gap: 0.5rem;
+      margin: 1rem 0 0;
+      font-size: 0.87rem;
+      color: var(--text-light);
+    }
+
+    .hero-highlights li::before {
+      content: "• ";
+      color: var(--accent);
+    }
+
+    .hero-photo-card {
+      background: rgba(255,255,255,0.96);
+      border-radius: 20px;
+      padding: 1.1rem 1.1rem 0.9rem;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.08);
+      border: 1px solid var(--border-soft);
+    }
+
+    .hero-photo-card img {
+      border-radius: 16px;
+    }
+
+    .hero-photo-caption {
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      color: var(--text-light);
+      text-align: center;
+    }
+
+    /* GRADE DE PRODUTOS */
+    .section-header {
+      text-align: center;
+      margin: 0 auto 1.8rem;
+      max-width: 40rem;
+    }
+
+    .section-label {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 0.3rem;
+      color: var(--text);
+    }
+
+    .section-subtitle {
+      font-size: 0.92rem;
+      color: var(--text-light);
+    }
+
+    .product-grid {
+      margin-top: 1.4rem;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    @media (max-width: 960px) {
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .product-card {
+      background: rgba(255,255,255,0.97);
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+      border: 1px solid var(--border-soft);
+      padding: 0.9rem 0.9rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    /* Ajuste de zoom/tamanho visual das fotos */
+    .product-image-wrapper {
+      background: radial-gradient(circle at top, #fff7ed 0%, #fffdf9 40%, #ffffff 100%);
+      border-radius: 16px;
+      padding: 0.6rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 1 / 1;  /* quadrado fixo */
+      overflow: hidden;
+    }
+
+    .product-image-wrapper img {
+      border-radius: 12px;
+      max-width: 88%;
+      max-height: 88%;
+      width: auto;
+      height: auto;
+    }
+
+    .product-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.25rem;
+    }
+
+    .product-name {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+      color: var(--text);
+    }
+
+    .product-desc {
+      font-size: 0.86rem;
+      color: var(--text-light);
+      margin-bottom: 0.7rem;
+    }
+
+    .product-meta {
+      margin-top: auto;
+      font-size: 0.82rem;
+      color: var(--text-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+      border-top: 1px dashed rgba(240,223,207,0.9);
+      padding-top: 0.6rem;
+    }
+
+    .product-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .pill {
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(233,122,42,0.3);
+      font-size: 0.78rem;
+      color: var(--accent);
+      background: rgba(233,122,42,0.05);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .pill-soft {
+      border-color: rgba(180,148,120,0.35);
+      color: #8a6e57;
+      background: rgba(228,202,176,0.12);
+      font-weight: 500;
+    }
+
+    /* BARRA DE INFO NO FINAL */
+    .extra-info {
+      margin-top: 2.5rem;
+      padding: 1.2rem 1rem;
+      border-radius: 16px;
+      background: linear-gradient(120deg, rgba(233,122,42,0.08), rgba(246,169,108,0.13));
+      border: 1px solid rgba(233,122,42,0.25);
+      font-size: 0.86rem;
+      color: var(--text-light);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.4rem;
+      align-items: center;
+    }
+
+    .extra-info strong {
+      color: var(--text);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border-soft);
+      background: rgba(255,247,238,0.96);
+      padding: 1.5rem 0 2rem;
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    .footer-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .footer-links a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 1px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-shell">
+      <nav class="nav nav-left">
+        <a href="sobre.html">Quem somos</a>
+        <a href="produtos.html">Produtos</a>
+      </nav>
+
+      <!-- LOGO CLICÁVEL -->
+      <a href="index.html" class="logo-link" aria-label="Voltar para a página inicial">
+        <img src="img/logo.png" alt="Cozinha da Gabriela" class="logo-img">
+        <div class="logo-text-main">O sabor caseiro que atravessa gerações</div>
+      </a>
+
+      <div class="nav-right">
+        <nav class="nav nav-right-links">
+          <a href="onde-encontrar.html">Onde encontrar</a>
+          <a href="contato.html">Contato</a>
+        </nav>
+        <button class="nav-cta" onclick="window.location.href='contato.html'">
+          Quero revender
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-badge">
+            Linha fixa Cozinha da Gabriela
+          </div>
+          <h1 class="hero-title">Biscoitos caseiros com sabor de lembrança boa</h1>
+          <p class="hero-subtitle">
+            Massa feita à mão, fornadas pequenas e ingredientes selecionados para lembrar
+            o biscoito da casa da mãe e da avó – agora com padrão para mercados e padarias.
+          </p>
+          <ul class="hero-highlights">
+            <li>Validade de 90 dias, ideal para gôndola.</li>
+            <li>Quatro sabores fixos, com ótimo giro de vendas.</li>
+            <li>Pacote de 150g e 200g em embalagem rígida, fácil de expor.</li>
+          </ul>
+        </div>
+
+        <div class="hero-photo-card">
+          <img src="img/produtos/diversas/produtos-mesa-02.jpeg"
+               alt="Linha de biscoitos Cozinha da Gabriela sobre a mesa">
+          <p class="hero-photo-caption">
+            Produção em escala, mas mantendo o cuidado artesanal em cada fornada.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Sabores disponíveis</div>
+          <h2 class="section-title">Nossa linha de biscoitos artesanais</h2>
+          <p class="section-subtitle">
+            Todos os produtos são preparados em uma pequena fábrica familiar em Arenápolis/MT,
+            com receitas que nasceram na cozinha da Gabriela e foram adaptadas para o atacado.
+          </p>
+        </div>
+
+        <div class="product-grid">
+          <!-- COCO -->
+          <article class="product-card">
+            <div class="product-image-wrapper">
+              <img src="img/produtos/coco/produto-coco-200g-front.jpeg"
+                   alt="Biscoito de coco Cozinha da Gabriela">
+            </div>
+            <div class="product-tag">Biscoito de coco</div>
+            <h3 class="product-name">Coco fresco ralado na hora</h3>
+            <p class="product-desc">
+              Clássico artesanal preparado com coco fresco ralado, massa leve e textura crocante.
+              Ideal para acompanhar o café coado de todo dia.
+            </p>
+            <div class="product-meta">
+              <span><strong>200g</strong> &nbsp;|&nbsp; validade 90 dias</span>
+              <span class="pill">Mais vendido</span>
+            </div>
+          </article>
+
+          <!-- GOIABADA -->
+          <article class="product-card">
+            <div class="product-image-wrapper">
+              <img src="img/produtos/goiabada/produto-goiabada-200g-front.jpeg"
+                   alt="Biscoito de goiabada Cozinha da Gabriela">
+            </div>
+            <div class="product-tag">Biscoito de goiabada</div>
+            <h3 class="product-name">Massa leve com goiabada natural</h3>
+            <p class="product-desc">
+              Biscoito amanteigado com cubinhos de goiabada, equilibrando doçura e acidez.
+              É aquele clássico que lembra lanche da tarde na casa da avó.
+            </p>
+            <div class="product-meta">
+              <span><strong>200g</strong> &nbsp;|&nbsp; validade 90 dias</span>
+              <span class="pill-soft">Perfeito para o café da tarde</span>
+            </div>
+          </article>
+
+          <!-- LIMÃO -->
+          <article class="product-card">
+            <div class="product-image-wrapper">
+              <img src="img/produtos/limao/produto-limao-150g-front.jpeg"
+                   alt="Sequilho de limão Cozinha da Gabriela">
+            </div>
+            <div class="product-tag">Sequilho de limão</div>
+            <h3 class="product-name">Toque cítrico e leveza</h3>
+            <p class="product-desc">
+              Massa delicada com toque de limão, que desmancha na boca.
+              A opção preferida de quem gosta de biscoito suave, mas marcante.
+            </p>
+            <div class="product-meta">
+              <span><strong>150g</strong> &nbsp;|&nbsp; validade 90 dias</span>
+              <span class="pill-soft">Textura que derrete</span>
+            </div>
+          </article>
+
+          <!-- LEITE CONDENSADO -->
+          <article class="product-card">
+            <div class="product-image-wrapper">
+              <img src="img/produtos/leite-condensado/produto-leite-condensado-150g-front.jpeg"
+                   alt="Sequilho de leite condensado Cozinha da Gabriela">
+            </div>
+            <div class="product-tag">Sequilho de leite condensado</div>
+            <h3 class="product-name">Sabor de receita de família</h3>
+            <p class="product-desc">
+              Sequilho tradicional de leite condensado, com sabor de infância e merenda de escola.
+              Combina com café, chá ou aquele leitinho da noite.
+            </p>
+            <div class="product-meta">
+              <span><strong>150g</strong> &nbsp;|&nbsp; validade 90 dias</span>
+              <span class="pill">Clássico da casa</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="extra-info">
+          <strong>Informações para mercados e padarias:</strong>
+          <span>• Embalagem rígida transparente, fácil de expor em gôndola ou balcão.</span>
+          <span>• Rotulagem com tabela nutricional e informações completas.</span>
+          <span>• Produção em escala, mas mantendo o padrão artesanal de fabricação.</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div>
+        &copy; <span id="year"></span> Cozinha da Gabriela. Todos os direitos reservados.
+      </div>
+      <div class="footer-links">
+        <a href="sobre.html">Quem somos</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="onde-encontrar.html">Onde encontrar</a>
+        <a href="contato.html">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
